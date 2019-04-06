@@ -4,6 +4,12 @@
     {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
     {{ $paginator := .Paginate (where .Data.Pages "Type" $contentTypeName) }}
 
+    {{ if .IsHome }}
+    <div class="post on-list">
+      {{ .Content }}
+    </div>
+    {{ end }}
+
     {{ range $paginator.Pages }}
     <div class="post on-list">
       <h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
