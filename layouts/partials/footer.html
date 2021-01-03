@@ -2,15 +2,16 @@
   <div class="footer__inner">
     {{ if $.Site.Copyright }}
       <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
-    {{else}}
+      {{ else }}
       {{ partial "logo.html" . }}
       <div class="copyright">
         <span>© 2013-{{ now.Year }} Hamid Elaosta</a></span>
       </div>
-    {{end}}
+    {{ end }}
   </div>
 </footer>
 
 <script src="{{ "assets/main.js" | absURL }}"></script>
 <script src="{{ "assets/prism.js" | absURL }}"></script>
+
 {{- partial "extended_footer.html" . }}
